@@ -1,0 +1,37 @@
+package jv.argv.sumaValores;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import jv.argv.sumaValores.verificador; 
+
+
+
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Ingrese una cadena de texto: ");
+		String cadena = "";
+		Scanner teclado = new Scanner(System.in);
+		cadena = teclado.nextLine();
+		
+		verificador parser = new verificador();
+		
+		char[] arregloParseado = parser.convertirCadenaAAreglo(cadena);
+		ArrayList<Character>listaVocales = new ArrayList<>();
+		ArrayList<Character>listaConsonantes = new ArrayList<>();
+		
+		
+	
+		for (int i=0; i < arregloParseado.length; i++) {
+			if(parser.esVocal(arregloParseado[i])) {
+					listaVocales.add(arregloParseado[i]);
+				}else {
+					listaConsonantes.add(arregloParseado[i]);
+				}
+			}
+		
+		
+		System.out.println("Lista de con de vocales: " + listaVocales);
+		System.out.println("Lista de consonantes: " + listaConsonantes);
+	}
+}
